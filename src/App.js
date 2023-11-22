@@ -15,10 +15,14 @@ function App() {
 
 
   const favAddHandler = () => {
-    sira < movies.length - 1 && setSira(sira + 1);
-    dispatch(addFav(movies[sira]));
-    const id = movies[sira].id
-    dispatch(removeMovie(id))
+    if (sira < movies.length - 1) {
+      const id = movies[sira].id;
+      if (!favMovies.find(movie => movie.id === id)) {
+        dispatch(addFav(movies[sira]));
+        dispatch(removeMovie(id));
+      }
+      setSira(sira + 1);
+    }
   }
 
   const öncekiFilm = () => {

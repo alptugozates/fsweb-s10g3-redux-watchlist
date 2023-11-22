@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { legacy_createStore as createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import reducer from './reducer/favReducer';
+
 const store = createStore(
   reducer,
   applyMiddleware(logger)
